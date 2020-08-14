@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        
+        <!--- usando eventos com v-on:evento ou @evento -->
+        <button v-on:click="adiciona">+1</button>
+        <p>{{cont}}</p>
+
+        <div @mousemove="posicao"> 
+           <p>Atualizando posição...</p>
+           <p> X: {{x}} e Y: {{x}}</p>
+        </div>
+
+        <input type="text" @keyup.enter="msg">
+        
+    </div>
+    <script>
+        //instanciando 
+        new Vue({
+            el:"#app",
+            data:{
+                cont: 0,
+                x: 0,
+                y: 0
+            },
+            methods:{
+                adiciona(){
+                    this.cont++
+                },
+                posicao(e){
+                    this.x = e.clientX
+                    this.y = e.clientY
+                },
+                msg(){
+                    
+                    alert("Enter apertado!")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

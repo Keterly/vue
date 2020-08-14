@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Binding</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <!--- v-bind para interpolar conteúdos. É possível utilizar :href para obter o mesmo resultado.-->
+        <p>
+            <a v-bind:href="link">Google</a>
+        </p>
+
+        <!--- v-model para atualização em duas direções -->
+        <p>
+            <input type="text" v-model="nome"> <br>
+            <span>{{nome}}</span>
+        </p>
+
+    </div>
+    <script>
+        //instanciando 
+        new Vue({
+            el:"#app",
+            data: {
+                nome: "Ana Julia",
+                link: "https://www.google.com.br/"
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Conceitos Básicos</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <p>Produto: {{produto}}</p>
+        <p>Preço: {{preco}}</p>
+        <p>Data da compra: {{data()}} </p>
+        <p>Valor do desconto: {{economia}}</p>
+    </div>
+    <script>
+        //instanciando vue 
+        new Vue({
+            el: "#app", //elemento a ser manipulado pelo vue
+            data: { //atributos
+                produto: 'notebook',
+                preco: 2500.00
+            },
+            methods:{ //use para escrever métodos
+                data(){
+                    return new Date().toLocaleString() 
+                }
+            },
+            computed:{  //use para valores calculados
+                economia(){
+                    return this.preco * 0.30 
+                }
+            }
+        })
+    </script>
+</body>
+</html>
